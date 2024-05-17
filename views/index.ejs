@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+  <title>DoctorGPT</title>
+  <meta name="referrer" content="no-referrer">
+  <link rel="shortcut icon" href="/imgs/doctor-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <section class="form-wrap">
+        <button class="instruction-btn"><a href="/how-to-use">Important Setup Instructions</a></button>
+        <h2>Chatbot Customization</h2>
+        <form action="chatbot" method="post">
+            <fieldset>
+                <legend>Enter your personal information</legend>
+                <label for="patient-name">Patient Name:</label>
+                <input type="text" id="patient-name" name="patient-name" value="<%= patient_name %>" required><br><br>
+
+                <label for="patient-dob">Patient Date of Birth:</label>
+                <input type="date" id="patient-dob" name="patient-dob" value="<%= patient_dob %>" required><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Select avatar preference</legend>
+                <label for="avatar-name">Avatar name:</label>
+                <select id="avatar-name" name="avatar-name" onchange="updateAvatarURL()">
+                    <option value="">Select a model</option>
+                    <option value="Jessica">Jessica</option> 
+                    <option value="Mona">Mona</option>
+                    <option value="Lily">Lily</option>
+                    <option value="Dog2">Dog2</option>
+                    <option value="Trump">Trump</option>
+                    <option value="Washington">Washington</option>
+                    <option value="Brunette">Brunette</option>
+                    <option value="Kiera">Kiera</option>
+                    <option value="Dog1">Dog1</option>
+                    <option value="Justin">Justin Bieber</option>
+                    <option value="Portman">Portman</option>
+                </select>
+                <label for="avatar-gender">Gender:</label>
+                <select id="avatar-gender" name="avatar-gender">
+                    <option value="">Select a gender</option>
+                    <option value="male" <%= avatar_gender === 'male' ? 'selected' : '' %>>Male</option>
+                    <option value="female" <%= avatar_gender === 'female' ? 'selected' : '' %>>Female</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Prompt Input</legend>
+                <label for="prompt-input">Enter the context:</label>
+                <textarea id="prompt-input" name="prompt-input" rows="4" cols="65"><%= prompt_input %></textarea>
+            </fieldset>
+            <br>
+            <div class="submit-button">
+                <input type="submit" value="Chat Now!">
+            </div>
+        </form>
+    </section>
+        
+    <div class="bg"></div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script type="text/javascript" src="/js/form-script.js"></script>
+
+</body>

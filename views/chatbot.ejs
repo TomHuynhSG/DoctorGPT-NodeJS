@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+  <title>DoctorGPT</title>
+  <meta name="referrer" content="no-referrer">
+  <link rel="shortcut icon" href="/imgs/doctor-icon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+
+    <nav class="go-back"><a href="/">🏠 Homepage</a></nav>
+
+    <div class="chat">
+        <div class="chat-title">
+            <h1><%= patient_name %></h1>
+        </div>
+        <div class="messages">
+            <div class="messages-content"></div>
+        </div>
+        <div class="message-box">
+            <textarea type="text" class="message-input" id="typed-input" placeholder="Type message..."></textarea>
+            <i class="input-microphone material-icons-extended" id="mic" style="display: block;">mic</i>
+            <button type="submit" class="message-submit">Send</button>
+        </div>
+    </div>
+
+    <div class="animation">
+      <h4><%= avatar_name %></h4>
+      <input id="gender" type="hidden" value="<%= avatar_gender %>">
+      <div id="ttsoptions">
+        <div>
+          <label>Voice:</label>
+          <select id="voiceSelecter" class="guioption"></select>
+        </div>
+        <div>
+          <input type="text" id="texttospeakinput" value="Pretty cool. I didn't know gifs could talk." class="guioption" onClick="this.setSelectionRange(0, this.value.length)">
+          <div id="texterrormessage" class="guierrormessage"></div>
+        </div>
+        <div>
+          <button id="newgifbutton">Change Avatar</button>
+          <input type="text" id="gifurlinput" value="https://i.imgur.com/ork8hoP.gif" class="guioption" onClick="this.setSelectionRange(0, this.value.length)">
+          <div id="giferrormessage" class="guierrormessage"></div>
+        </div>
+      </div>
+      <div id="instructions">The avatar is ready!</div>
+      <script type="text/javascript"></script>
+      <!-- <div>
+        <a href="javascript:playsyncronized()">
+          <div id="imagecontainer">
+            <img id="exampleimg" src="https://i.imgur.com/ork8hoP.gif" rel:animated_src="https://i.imgur.com/ork8hoP.gif" rel:auto_play="0" />
+          </div>
+        </a>
+      </div> -->
+      <div>
+        <a href="javascript:playsyncronized()">
+            <div id="imagecontainer">
+                <% if (avatar_name == 'Dog2') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/dS2yZ19.gif" rel:animated_src="https://i.imgur.com/dS2yZ19.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Mona') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/lLHEQ3F.gif" rel:animated_src="https://i.imgur.com/lLHEQ3F.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Lily') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/ork8hoP.gif" rel:animated_src="https://i.imgur.com/ork8hoP.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Trump') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/YpKsOQS.gif" rel:animated_src="https://i.imgur.com/YpKsOQS.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Washington') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/FkEVxI6.gif" rel:animated_src="https://i.imgur.com/FkEVxI6.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Brunette') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/dvXw5bu.gif" rel:animated_src="https://i.imgur.com/dvXw5bu.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Kiera') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/dvXw5bu.gif" rel:animated_src="https://i.imgur.com/dvXw5bu.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Dog1') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/JwAmmkx.gif" rel:animated_src="https://i.imgur.com/dvXw5bu.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Justin') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/vqVsazA.gif" rel:animated_src="https://i.imgur.com/vqVsazA.gif" rel:auto_play="0" />
+                <% } else if (avatar_name == 'Portman') { %>
+                    <img id="exampleimg" src="https://i.imgur.com/YphP1gi.gif" rel:animated_src="https://i.imgur.com/YphP1gi.gif" rel:auto_play="0" />
+                <% } else { %>
+                    <img id="exampleimg" src="https://i.imgur.com/ork8hoP.gif" rel:animated_src="https://i.imgur.com/ork8hoP.gif" rel:auto_play="0" />
+                <% } %>
+            </div>
+        </a>
+    </div>
+    
+    
+    </div>
+        
+    <div class="bg"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+  <script type="text/javascript" src="/js/libgif.js"></script>
+  <script type="text/javascript" src="/js/face-animation.js"></script>
+  <script type="text/javascript" src="/js/chatbot-script.js"></script>
+
+</body>
+</html>
