@@ -12,20 +12,20 @@
 
 <body>
     <section class="form-wrap">
-        <button class="instruction-btn"><a href="/how-to-use">Important Setup Instructions</a></button>
+        <!-- <button class="instruction-btn"><a href="/how-to-use">Important Setup Instructions</a></button> -->
         <h2>Chatbot Customization</h2>
         <form action="chatbot" method="post">
             <fieldset>
                 <legend>Enter your personal information</legend>
-                <label for="patient-name">Patient Name:</label>
+                <label for="patient-name">Your Name:</label>
                 <input type="text" id="patient-name" name="patient-name" value="<%= patient_name %>" required><br><br>
 
-                <label for="patient-dob">Patient Date of Birth:</label>
+                <label for="patient-dob">Your Date of Birth:</label>
                 <input type="date" id="patient-dob" name="patient-dob" value="<%= patient_dob %>" required><br>
             </fieldset>
             <br>
             <fieldset>
-                <legend>Select avatar preference</legend>
+                <legend>Select AI avatar preference</legend>
                 <label for="avatar-name">Avatar name:</label>
                 <select id="avatar-name" name="avatar-name" onchange="updateAvatarURL()">
                     <option value="">Select a model</option>
