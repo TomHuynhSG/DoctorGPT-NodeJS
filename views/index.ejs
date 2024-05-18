@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>DoctorGPT</title>
+  <title>AI Companionship</title>
   <meta name="referrer" content="no-referrer">
   <link rel="shortcut icon" href="/imgs/doctor-icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -12,15 +12,14 @@
 
 <body>
     <section class="form-wrap">
-        <!-- <button class="instruction-btn"><a href="/how-to-use">Important Setup Instructions</a></button> -->
         <h2>Chatbot Customization</h2>
         <form action="chatbot" method="post">
             <fieldset>
-                <legend>Enter your personal information</legend>
-                <label for="patient-name">Your Name:</label>
+                <legend>Enter your information</legend>
+                <label for="patient-name">Name:</label>
                 <input type="text" id="patient-name" name="patient-name" value="<%= patient_name %>" required><br><br>
 
-                <label for="patient-dob">Your Date of Birth:</label>
+                <label for="patient-dob">Date of Birth:</label>
                 <input type="date" id="patient-dob" name="patient-dob" value="<%= patient_dob %>" required><br>
             </fieldset>
             <br>
@@ -52,8 +51,8 @@
             </fieldset>
             <br>
             <fieldset>
-                <legend>Prompt Input</legend>
-                <label for="prompt-input">Enter the context:</label>
+                <legend>Case Study Context</legend>
+                <label for="prompt-input">Enter the detailed context:</label>
                 <textarea id="prompt-input" name="prompt-input" rows="4" cols="65"><%= prompt_input %></textarea>
             </fieldset>
             <br>

@@ -112,11 +112,6 @@ app.get('/chatbot', (req, res) => {
     res.redirect('/register');
 });
 
-app.get('/how-to-use', (req, res) => {
-    res.render('how-to-use');
-});
-
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
