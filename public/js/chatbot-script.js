@@ -82,7 +82,7 @@ $(window).on('load', function() {
     if ($(".animation #gender").val() == 'male'){
       $("#voiceSelecter").val("Google UK English Male");
     } 
-  }, 1000);
+  }, 3000);
 
 
 });
@@ -100,8 +100,7 @@ function insertUserMessage() {
   updateScrollbar();
 
   console.log("Sending query to API");
-
-  var send_info = { query: msg};
+  var send_info = {query: msg};
   $.ajax({
     type: 'post',
     url: '/api',
@@ -120,12 +119,12 @@ function insertUserMessage() {
 
 
 function insertAIMessage(reply) {
-  $('<div class="message loading new"><figure class="avatar"><img src="/static/doctor.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  $('<div class="message loading new"><figure class="avatar"><img src="/imgs/doctor.png" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
 
   setTimeout(function() {
       $('.message.loading').remove();
-      $('<div class="message new"><figure class="avatar"><img src="/static/doctor.png" /></figure>' + reply + '</div>').appendTo($('.mCSB_container')).addClass('new');
+      $('<div class="message new"><figure class="avatar"><img src="/imgs/doctor.png" /></figure>' + reply + '</div>').appendTo($('.mCSB_container')).addClass('new');
       setDate();
       updateScrollbar();
       i++;

@@ -29,7 +29,7 @@
                 <label for="avatar-name">Avatar name:</label>
                 <select id="avatar-name" name="avatar-name" onchange="updateAvatarURL()">
                     <option value="">Select a model</option>
-                    <option value="Jessica">Jessica</option> 
+                    <option value="Jessica" selected="selected">Jessica</option> 
                     <option value="Mona">Mona</option>
                     <option value="Lily">Lily</option>
                     <option value="Dog2">Dog2</option>
@@ -41,9 +41,11 @@
                     <option value="Justin">Justin Bieber</option>
                     <option value="Portman">Portman</option>
                 </select>
-                <label for="avatar-gender">Gender:</label>
+                <br>
+                <br>
+                <label for="avatar-gender">Voice Gender:</label>
                 <select id="avatar-gender" name="avatar-gender">
-                    <option value="">Select a gender</option>
+                    <option value="">Select a voice gender</option>
                     <option value="male" <%= avatar_gender === 'male' ? 'selected' : '' %>>Male</option>
                     <option value="female" <%= avatar_gender === 'female' ? 'selected' : '' %>>Female</option>
                 </select>
