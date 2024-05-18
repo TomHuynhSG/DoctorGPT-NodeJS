@@ -82,7 +82,7 @@ $(window).on('load', function() {
     if ($(".animation #gender").val() == 'male'){
       $("#voiceSelecter").val("Google UK English Male");
     } 
-  }, 3000);
+  }, 1000);
 
 
 });
