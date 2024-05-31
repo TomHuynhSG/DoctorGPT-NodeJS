@@ -41,8 +41,10 @@ const generatePrompt = (session) => {
     const dtString = format(now, 'EEEE dd/MM/yyyy HH:mm:ss');
     const date_time_string = `Current date and time now is ${dtString}.`;
     const prompt_input_string = `${session.prompt_input}. Your patient name is ${session.patient_name} with ${session.patient_dob}. Your name is ${session.avatar_name}.`;
-    return date_time_string + prompt_input_string;
+    const ai_model_string = ` The selected AI model is ${session.ai_chatbot_model}.`;
+    return date_time_string + prompt_input_string + ai_model_string;
 };
+
 
 app.post('/api', async (req, res) => {
     if (!req.session.conversation) req.session.conversation = [];
@@ -55,7 +57,7 @@ app.post('/api', async (req, res) => {
                 { role: 'system', content: generatePrompt(req.session) },
                 ...req.session.conversation
             ],
-            model: "gpt-3.5-turbo",
+            model: req.session.ai_chatbot_model || "gpt-3.5-turbo", // Use the selected model or default to gpt-3.5-turbo
         });
 
         const reply = completion.choices[0].message.content.trim();
@@ -68,6 +70,7 @@ app.post('/api', async (req, res) => {
         res.status(500).json({ error: "Error creating completion" });
     }
 });
+
 
 
 app.get('/register', (req, res) => {
@@ -97,10 +100,12 @@ app.post('/chatbot', (req, res) => {
     req.session.avatar_name = req.body['avatar-name'];
     req.session.avatar_gender = req.body['avatar-gender'];
     req.session.prompt_input = req.body['prompt-input'];
+    req.session.ai_chatbot_model= req.body['ai-chatbot'];
     res.render('chatbot', {
         avatar_gender: req.session.avatar_gender,
         avatar_name: req.session.avatar_name,
-        patient_name: req.session.patient_name
+        patient_name: req.session.patient_name,
+        ai_chatbot_model:req.session.ai_chatbot_model
     });
 });
 
@@ -113,7 +118,7 @@ app.get('/chatbot', (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Starting server on port ${PORT}`);
 });
