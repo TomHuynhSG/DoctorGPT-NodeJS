@@ -9,116 +9,92 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
   <link rel="stylesheet" href="/css/styles.css" />
   <style>
-    .tooltip {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      color: #fff;
-      padding: 5px;
-      border-radius: 5px;
-      font-size: 12px;
-      pointer-events: none;
-      z-index: 1000;
+    .description {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
-    <section class="form-wrap">
-        <h2>Chatbot Customization</h2>
-        <form action="chatbot" method="post">
-            <fieldset>
-                <legend>Enter your information</legend>
-                <label for="patient-name">Name:</label>
-                <input type="text" id="patient-name" name="patient-name" value="<%= patient_name %>" required><br><br>
+  <section class="form-wrap">
+    <h2>Chatbot Customization</h2>
+    <form action="chatbot" method="post">
+      <fieldset>
+        <legend>Enter your information</legend>
+        <label for="patient-name">Name:</label>
+        <input type="text" id="patient-name" name="patient-name" value="<%= patient_name %>" required><br><br>
 
-                <label for="patient-dob">Date of Birth:</label>
-                <input type="date" id="patient-dob" name="patient-dob" value="<%= patient_dob %>" required><br>
-            </fieldset>
-            <fieldset>
-                <legend>Input chatbot models</legend>
-                <label for="ai-chatbot">AI Models:</label>
-                <select id="ai-chatbot" name="ai-chatbot">
-                    <option value="">Select a model</option>
-                    <option value="gpt-4o">gpt-4o</option>
-                    <option value="gpt-4-turbo">gpt-4-turbo</option>
-                </select>
-            </fieldset>
-            <br>
-            <fieldset>
-                <legend>Select AI avatar preference</legend>
-                <label for="avatar-name">Avatar name:</label>
-                <select id="avatar-name" name="avatar-name" onchange="updateAvatarURL()">
-                    <option value="">Select a model</option>
-                    <option value="Jessica" selected="selected">Jessica</option> 
-                    <option value="Mona">Mona</option>
-                    <option value="Lily">Lily</option>
-                    <option value="Dog2">Dog2</option>
-                    <option value="Trump">Trump</option>
-                    <option value="Washington">Washington</option>
-                    <option value="Brunette">Brunette</option>
-                    <option value="Kiera">Kiera</option>
-                    <option value="Dog1">Dog1</option>
-                    <option value="Justin">Justin Bieber</option>
-                    <option value="Portman">Portman</option>
-                </select>
-                <br>
-                <br>
-                <label for="avatar-gender">Voice Gender:</label>
-                <select id="avatar-gender" name="avatar-gender">
-                    <option value="">Select a voice gender</option>
-                    <option value="male" <%= avatar_gender === 'male' ? 'selected' : '' %>>Male</option>
-                    <option value="female" <%= avatar_gender === 'female' ? 'selected' : '' %>>Female</option>
-                </select>
-            </fieldset>
-            <br>
-            <fieldset>
-                <legend>Case Study Context</legend>
-                <label for="prompt-input">Enter the detailed context:</label>
-                <textarea id="prompt-input" name="prompt-input" rows="4" cols="65"><%= prompt_input %></textarea>
-            </fieldset>
-            <br>
-            <div class="submit-button">
-                <input type="submit" value="Chat Now!">
-            </div>
-        </form>
-    </section>
-        
-    <div class="bg"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const aiChatbotSelect = document.getElementById('ai-chatbot');
-          const tooltip = document.createElement('div');
-          tooltip.classList.add('tooltip');
-          document.body.appendChild(tooltip);
-    
-          const descriptions = {
-            model1: "Description for Model 1: This model is optimized for general conversational purposes, providing coherent and contextually relevant responses.",
-            model2: "Description for Model 2: This model excels in technical domains, offering in-depth knowledge and accurate answers for complex queries.",
-            model3: "Description for Model 3: This model is designed for creative writing and storytelling, generating imaginative and engaging content."
-          };
-          
-          aiChatbotSelect.addEventListener('mouseover', function(event) {
-            if (event.target.tagName === 'OPTION') {
-                console.log(event.target.value);
-              const description = descriptions[event.target.value];
-              if (description) {
-                tooltip.textContent = description;
-                tooltip.style.display = 'block';
-              }
-            }
-          });
-    
-          aiChatbotSelect.addEventListener('mousemove', function(event) {
-            tooltip.style.left = event.pageX + 15 + 'px';
-            tooltip.style.top = event.pageY + 15 + 'px';
-          });
-    
-          aiChatbotSelect.addEventListener('mouseout', function(event) {
-            tooltip.style.display = 'none';
-          });
-        });
-      </script>
+        <label for="patient-dob">Date of Birth:</label>
+        <input type="date" id="patient-dob" name="patient-dob" value="<%= patient_dob %>" required><br>
+      </fieldset>
+      <fieldset>
+        <legend>Input chatbot models</legend>
+        <label for="ai-chatbot">AI Models:</label>
+        <select id="ai-chatbot" name="ai-chatbot" onchange="updateDescription()">
+          <option value="">Select a model</option>
+          <option value="gpt-4o">gpt-4o</option>
+          <option value="gpt-4-turbo">gpt-4-turbo</option>
+        </select>
+        <div id="description" class="description"></div>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Select AI avatar preference</legend>
+        <label for="avatar-name">Avatar name:</label>
+        <select id="avatar-name" name="avatar-name" onchange="updateAvatarURL()">
+          <option value="">Select a model</option>
+          <option value="Jessica" selected="selected">Jessica</option>
+          <option value="Mona">Mona</option>
+          <option value="Lily">Lily</option>
+          <option value="Dog2">Dog2</option>
+          <option value="Trump">Trump</option>
+          <option value="Washington">Washington</option>
+          <option value="Brunette">Brunette</option>
+          <option value="Kiera">Kiera</option>
+          <option value="Dog1">Dog1</option>
+          <option value="Justin">Justin Bieber</option>
+          <option value="Portman">Portman</option>
+        </select>
+        <br>
+        <br>
+        <label for="avatar-gender">Voice Gender:</label>
+        <select id="avatar-gender" name="avatar-gender">
+          <option value="">Select a voice gender</option>
+          <option value="male" <%= avatar_gender === 'male' ? 'selected' : '' %>>Male</option>
+          <option value="female" <%= avatar_gender === 'female' ? 'selected' : '' %>>Female</option>
+        </select>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Case Study Context</legend>
+        <label for="prompt-input">Enter the detailed context:</label>
+        <textarea id="prompt-input" name="prompt-input" rows="4" cols="65"><%= prompt_input %></textarea>
+      </fieldset>
+      <br>
+      <div class="submit-button">
+        <input type="submit" value="Chat Now!">
+      </div>
+    </form>
+  </section>
+
+  <div class="bg"></div>
+  <script>
+    const descriptions = {
+      "":"If you leave the option as default, the system will use GPT-3.5 model",
+      "gpt-4o": "This model is optimized for general conversational purposes, providing coherent and contextually relevant responses.",
+      "gpt-4-turbo": "This model excels in technical domains, offering in-depth knowledge and accurate answers for complex queries."
+    };
+
+    function updateDescription() {
+      const aiChatbotSelect = document.getElementById('ai-chatbot');
+      const descriptionDiv = document.getElementById('description');
+      const selectedValue = aiChatbotSelect.value;
+      const description = descriptions[selectedValue] || '';
+      descriptionDiv.textContent = description;
+    }
+  </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script type="text/javascript" src="/js/form-script.js"></script>
 
