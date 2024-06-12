@@ -117,6 +117,11 @@ app.get('/chatbot', (req, res) => {
     res.redirect('/register');
 });
 
+app.get('/marketplace', (req, res) => {
+    res.render('marketplace');
+});
+
+
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {

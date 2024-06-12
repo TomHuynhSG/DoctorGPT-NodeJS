@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPTs Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/marketplace.css" />
+</head>
+
+<body>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="search-bar mb-4">
+                    <input class="form-control" type="text" placeholder="Search Agents">
+                </div>
+                <ul class="nav flex-column nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Top Common</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mood Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Anxiety Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Obsessive-Compulsive Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trauma and Stressor Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Psychotic Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Personality Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Neurodevelopmental Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eating Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Somatic Symptom Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Substance and Addictive Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Neurocognitive Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Disruptive, Impulse-Control, and Conduct Disorders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sexual Dysfunctions and Gender Dysphoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sleep-Wake Disorders</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    <h2>Top Common</h2>
+                    <p>Most common agents by our community</p>
+                    <div id="listGroup" class="list-group mb-4">
+                    </div>
+                    <button type="button" class="btn btn-primary">See more</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center mb-4">
+                            <img id="modalImage" src="" alt="Agent Image" class="img-fluid">
+                        </div>
+                        <p id="modalDescription"></p>
+                        <p id="modalAuthor" class="font-weight-bold"></p>
+                        <a id="modalPdfLink" href="#" class="btn btn-secondary" target="_blank">Download Case Study</a>
+                    </div>
+                    <div class="modal-footer">
+                        <form id="chatForm" action="/chatbot" method="post">
+                            <input type="hidden" id="patient-name" name="patient-name" value="Julia">
+                            <input type="hidden" id="patient-dob" name="patient-dob" value="1963-11-26">
+                            <input type="hidden" id="ai-chatbot" name="ai-chatbot" value="gpt-4o">
+                            <input type="hidden" id="avatar-name" name="avatar-name" value="Jessica">
+                            <input type="hidden" id="avatar-gender" name="avatar-gender" value="female">
+                            <input type="hidden" id="prompt-input" name="prompt-input" value="Imagine we are in a nursing home in Ho Chi Minh City. Please act as a healthcare worker to take care of a dementia patient. The patient's children usually visit him on the weekend, like Saturday.">
+                            <button type="submit" class="btn btn-primary">Chat Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const items = [
+            {
+                title: "Adolescent with Social Anxiety, Depression, and Impact of Bullying",
+                description: "An adolescent experiencing social anxiety and depression, exacerbated by bullying from peers and teachers. Despite these challenges, they seek acceptance and support from understanding peers to combat feelings of isolation and inadequacy.",
+                author: "Dr. Arthur Tang",
+                imageUrl: "/imgs/icons/1.png",
+                pdfUrl: "case-study-the-experience-of-adolescents-with-mental-disorders-in-school.pdf"
+            },
+            {
+                title: "Adolescent with Bipolar Disorder Exhibiting Mood-Dependent Changes in Personal Identity and Emotional Intensity",
+                description: "An adolescent diagnosed with Bipolar Disorder, experiencing significant mood-dependent changes in personal identity, intense emotional fluctuations, and a profound sense of being trapped or isolated during both depressive and manic episodes.",
+                author: "Dr. Sophia Martinez",
+                imageUrl: "/imgs/icons/2.png",
+                pdfUrl: "case-study-the-inner-subjective-experience-of-mood-disorders.pdf"
+            },
+            {
+                title: "Adult with Generalized Anxiety Disorder and Career-Related Stress",
+                description: "An adult experiencing chronic anxiety and excessive worry about various aspects of life, particularly career-related stress. The patient finds it difficult to control their anxiety and often feels restless, fatigued, and struggles with concentration.",
+                author: "Tom Huynh",
+                imageUrl: "/imgs/icons/3.png",
+                pdfUrl: "file-6ENa2r0nMRnwFjyFN0mLFW3E.pdf"
+            },
+            {
+                title: "Child with Attention Deficit Hyperactivity Disorder (ADHD)",
+                description: "A child diagnosed with ADHD displaying symptoms of inattention, hyperactivity, and impulsivity. They have difficulty staying focused on tasks, often fidget, and act without thinking. The child needs structured routines and positive reinforcement to manage their behavior.",
+                author: "Dr. Ethan Patel",
+                imageUrl: "/imgs/icons/4.png",
+                pdfUrl: "file-6ENa2r0nMRnwFjyFN0mLFW3E.pdf"
+            },
+            {
+                title: "Elderly Individual with Alzheimer's Disease and Memory Loss",
+                description: "An elderly patient diagnosed with Alzheimer's Disease, experiencing progressive memory loss, confusion, and difficulty performing familiar tasks. They require support with daily activities and benefit from a stable, familiar environment to reduce anxiety and agitation.",
+                author: "Dr. Alexander Bennett",
+                imageUrl: "/imgs/icons/5.png",
+                pdfUrl: "file-6ENa2r0nMRnwFjyFN0mLFW3E.pdf"
+            },
+            {
+                title: "Adult with Obsessive-Compulsive Disorder (OCD) and Intrusive Thoughts",
+                description: "An adult suffering from OCD, characterized by recurrent, unwanted intrusive thoughts and compulsive behaviors aimed at reducing anxiety. The patient spends excessive amounts of time performing rituals and experiences significant distress and impairment in daily functioning.",
+                author: "Dr. Olivia Carter",
+                imageUrl: "/imgs/icons/6.png",
+                pdfUrl: "file-6ENa2r0nMRnwFjyFN0mLFW3E.pdf"
+            }
+        ];
+
+        function showInfo(title, description, author, pdfFile, imageFile) {
+            document.getElementById('infoModalLabel').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalAuthor').innerText = "By " + author;
+            document.getElementById('modalPdfLink').href = '/case-studies/' + pdfFile;
+            document.getElementById('modalImage').src = imageFile;
+        }
+
+        function truncateDescription(description, wordLimit) {
+            const words = description.split(' ');
+            if (words.length > wordLimit) {
+                return words.slice(0, wordLimit).join(' ') + '...';
+            }
+            return description;
+        }
+
+        function renderItems(items) {
+            const listGroup = document.getElementById('listGroup');
+            items.forEach((item, index) => {
+                const listItem = document.createElement('div');
+                listItem.className = 'list-group-item';
+
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'image-container';
+                const imagePlaceholder = document.createElement('img');
+                imagePlaceholder.className = 'img-fluid rounded';
+                imagePlaceholder.src = item.imageUrl;
+                imageDiv.appendChild(imagePlaceholder);
+
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'content-container';
+
+                const title = document.createElement('h5');
+                title.className = 'mb-1';
+                title.innerText = `${index + 1}. ${item.title}`;
+                contentDiv.appendChild(title);
+
+                const description = document.createElement('p');
+                description.className = 'mb-1';
+                description.innerHTML = truncateDescription(item.description, 16);
+                contentDiv.appendChild(description);
+
+                const author = document.createElement('p');
+                author.className = 'font-weight-bold';
+                author.innerText = "By " + item.author;
+                contentDiv.appendChild(author);
+
+                const button = document.createElement('button');
+                button.className = 'btn btn-link p-0';
+                button.setAttribute('data-toggle', 'modal');
+                button.setAttribute('data-target', '#infoModal');
+                button.setAttribute('onclick', `showInfo('${item.title}', '${item.description}', '${item.author}', '${item.pdfUrl}', '${item.imageUrl}')`);
+                button.innerText = 'More Info';
+                contentDiv.appendChild(button);
+
+                listItem.appendChild(imageDiv);
+                listItem.appendChild(contentDiv);
+                listGroup.appendChild(listItem);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderItems(items);
+        });
+    </script>
+</body>
+
+</html>
