@@ -109,8 +109,12 @@ app.post('/chatbot', (req, res) => {
     });
 });
 
+// app.get('/', (req, res) => {
+//     res.redirect('/register');
+// });
+
 app.get('/', (req, res) => {
-    res.redirect('/register');
+    res.render('frontpage');
 });
 
 app.get('/chatbot', (req, res) => {
