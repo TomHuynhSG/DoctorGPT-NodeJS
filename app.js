@@ -94,6 +94,26 @@ The patient's children usually visit him on the weekend, like Saturday.`;
     });
 });
 
+app.post('/register', (req, res) => {
+    req.session.conversation = [];
+    req.session.patient_name = req.body['patient-name'];
+    req.session.patient_dob = req.body['patient-dob'];
+    req.session.avatar_name = req.body['avatar-name'];
+    req.session.avatar_gender = req.body['avatar-gender'];
+    req.session.prompt_input = req.body['prompt-input'];
+    req.session.ai_chatbot_model= req.body['ai-chatbot'];
+
+    req.session.previous_question = "";
+    req.session.previous_answer = "";
+    res.render('index', {
+        patient_name: req.session.patient_name,
+        patient_dob: req.session.patient_dob,
+        prompt_input: req.session.prompt_input,
+        avatar_name: req.session.avatar_name,
+        avatar_gender: req.session.avatar_gender
+    });
+});
+
 app.post('/chatbot', (req, res) => {
     req.session.patient_name = req.body['patient-name'];
     req.session.patient_dob = req.body['patient-dob'];
