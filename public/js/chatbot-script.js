@@ -3,6 +3,20 @@ $(window).on('load', function() {
   // do things after the DOM loads fully
   console.log("Everything is loaded");
 
+  var isMuted = false;
+
+  $('#speaker').click(function() {
+      isMuted = !isMuted;
+
+      if (isMuted) {
+          $(this).text('🔇');
+          // Add code here to mute the avatar
+      } else {
+          $(this).text('🔊');
+          // Add code here to unmute the avatar
+      }
+  });
+
   let listening = false;
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;

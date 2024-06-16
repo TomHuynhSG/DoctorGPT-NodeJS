@@ -48,3 +48,11 @@
     flex-grow: 1;
     margin-left: 15px;
 }
+
+.under-dev-img{
+    width: 103px !important;
+    height: 94px !important;
+    position: absolute;
+    right: -90px;
+    top: 28px;
+}

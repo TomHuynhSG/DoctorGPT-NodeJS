@@ -90,11 +90,10 @@
                             <img id="modalImage" src="" alt="Agent Image" class="img-fluid">
                         </div>
                         <p id="modalDescription"></p>
-                        <p id="modalAuthor" class="font-weight-bold"></p>
-                        <a id="modalPdfLink" href="#" class="btn btn-secondary" target="_blank">Download Case Study</a>
+                        <h6 class="mt-3">Case Study:</h6>
+                        <p id="modalTextarea"></p>
 
-                        <h6 class="mt-3">Case Study Prompt:</h6>
-                        <textarea id="modalTextarea" class="form-control" rows="3" placeholder="Enter your message"></textarea>
+                        <!-- <textarea id="modalTextarea" class="form-control" rows="3" placeholder="Enter your message"></textarea> -->
                     </div>
                     <div class="modal-footer">
                         <form id="chatForm" action="/register" method="post">
@@ -103,11 +102,7 @@
                             <input type="hidden" id="ai-chatbot" name="ai-chatbot" value="gpt-4o">
                             <input type="hidden" id="avatar-name" name="avatar-name" value="Jessica">
                             <input type="hidden" id="avatar-gender" name="avatar-gender" value="female">
-
-                            
-                            <input type="hidden" id="prompt-input" name="prompt-input"
-                                value="my placeholder">
-                            
+                            <input type="hidden" id="prompt-input" name="prompt-input" value="my placeholder">
                             <button type="button" class="btn btn-primary" id="chatNowButton">Chat Now</button>
                         </form>
                     </div>
@@ -121,52 +116,52 @@
     <script>
         const items = [
             {
-                title: "Adolescent with Bipolar Disorder Exhibiting Mood-Dependent Changes in Personal Identity and Emotional Intensity",
-                description: "An adolescent diagnosed with Bipolar Disorder, experiencing significant mood-dependent changes in personal identity, intense emotional fluctuations, and a profound sense of being trapped or isolated during both depressive and manic episodes.",
-                author: "Dr. Sophia Martinez",
+                title: "Adolescent with Mood Disorder​",
+                description: "An adolescent diagnosed with Mood Disorder, experiencing significant mood-dependent changes in personal identity and a sense of being trapped or isolated during both depressive episodes.​",
                 imageUrl: "/imgs/icons/1.png",
-                pdfUrl: "case-study-the-inner-subjective-experience-of-mood-disorders.pdf",
-                prompt: "Let's roleplay! Please act as a person with behaviour described below:\nThe inner subjective experience of mood disorders\nExperiencing a change in one's personal identity\n\nAdolescents undergoing a depressive episode often describe a change in their experience of self, that they have difficulties to explain: “Like you don’t feel yourself”46. This feeling ranges from a loss of confidence to a persistent and negative sense of lost identity46-49.\n\nThe comparison between how they used to be and their current experience is extremely painful, affecting all areas of life, particularly their relationship with schoolmates and friends: “I used to be a really good friend, and now I’m not”47. Some of them feel that the good aspects of their identity have been replaced by unpleasant ones: “There is something wrong with me”47.\n\nThe weakened perception of the self may lead to a feeling of imminent personal failure: “I’m going to fail in everything”47. A sense of estrangement may be reported: “My depression is like being a different person… it’s like it’s part of my personality, but it’s overshadowing who I am”47.\n\nThe manic episodes are instead marked by an experience of consolidation of personal identity and possibilities: “I felt like I could do everything, that I would still be the best at whatever I decided to do” (personal communication).\n\nExperiencing overwhelmingly intense emotions\n\nAdolescents often experience mood episodes as a chaos of intense emotions. During the depressive phases, they report feelings of mental pain and anger (“I find dark elements in my life: sadness, anger, desperation and pain”50), which may be so intense that they feel like drowning: “With the depression spiral, you just keep going down and down”49. Sadness is described as being “to the deepest summit”51, often becoming an inconsolable “cry for no reason”47.\n\nDuring the manic phases, the intensification of all emotions is often perceived as confusing: “I had so many thoughts and so many emotions in my mind; they all mixed together” (personal communication). Anger not rarely predominates over euphoria and enthusiasm: “My immense rage increased at the same time as my desire to break everything, to feel things fall”52. Anger and irritability may be experienced as an overflowing river “that has always been present”53.\n\nAs adolescents have not typically developed mature coping strategies to contain their overwhelming irritability, they may resort to verbal or physical aggression towards themselves or others (“I feel really angry, it’s just like little things that get me irritable… I’ll literally go mad… It’s like I shout at them or punch things or just say stuff I don’t even like really mean”47) or bullying behaviors (“I was turning into a bully but didn’t want to turn into a bully”47).\n\nIn severe depression, rather than experiencing an intensification of their emotions, adolescents may experience a profound numbness and inability to feel any emotion at all: “I didn’t really feel anything, like there was no happiness or excitement, but there was also no sadness. It was just like everything was grey”46.\n\nFeeling trapped in their own minds\n\nAdolescents in a depressive episode often describe feeling trapped: “It is a disease that’s like a black hole. It is hard to get out of it, and everything around us is dark”54. They may also report feeling “flooded” by recurrent negative thoughts, self-doubts and ongoing ruminations: “I’m thinking about more and more things, so it’s like piling on top, so, the mood just kind of keeps going down”55.\n\nDuring a manic episode, there may be an experience of unprecedented availability of the surrounding world, as if everything is easily achievable and within reach: “The world was my playground” (personal communication). However, the sense of omnipotence is frequently chaotic and accompanied by racing thoughts and impulses: “You can tell that you were jumping from one thing to the next and not concluding sentences and things like that”56.\n\nTherefore, adolescents may eventually experience a painful sense of being trapped in their minds during both depressive and manic episodes. This feeling is amplified by an abnormal perception of the subjective time, which is stagnant in depression (“It feels like life goes on a loop every day, everything feels tired, nothing feels fresh anymore”54), and accelerated in mania (“It was as if everything couldn’t stop running”, personal communication).\n\nSeeing the surrounding world fading away\nDuring depressive episodes, adolescents may experience their surrounding world as fading away: “I’m separated from everyone else”47. They usually do not share the entertainment of their peers, and this makes them feel alone and isolated: “Everything is just harder to get through, and you want to isolate yourself”49. Isolation may become an unpleasant necessity: “‘I forget that everyone else exists… I’m invisible and I like that’”47.\n\nThe sense of isolation from the surrounding world may also be related to an altered perception of the lived body, which is characterized by heaviness, tiredness, and lack of energy: “I was always really tired, and I had no energy to do anything”47.\n\nDuring manic episodes, adolescents may report greater ease in social interaction (“I had always been shy but now I wasn’t anymore”, personal communication). However, this sense of being more in tune with the surrounding world is only apparent and transitory31. They are not able to pause and stop to properly meet their schoolmates and friends, because thoughts and body are in continuous excessive movement.\n\nTherefore, both in depression and mania, adolescents may ultimately experience the surrounding world fading away. Everything turns into a pointless and hopeless stagnation of personal purpose (“What is the point anymore? There is no point!”48) and boredom (“Just try and do a lot of different things, think I was interested in them then get bored, and just get into a cycle of boredom”46), or into a senseless race without a goal (“I felt like I was in a video game”, personal communication).\n\nI want us to have a conversation. Answer/respond as the described person would."
+                prompt: "Let's roleplay! Please act as a person with behaviour described below:\nThe inner subjective experience of mood disorders\nExperiencing a change in one's personal identity\n\nAdolescents undergoing a depressive episode often describe a change in their experience of self, that they have difficulties to explain: “Like you don’t feel yourself”46. This feeling ranges from a loss of confidence to a persistent and negative sense of lost identity46-49.\n\nThe comparison between how they used to be and their current experience is extremely painful, affecting all areas of life, particularly their relationship with schoolmates and friends: “I used to be a really good friend, and now I’m not”47. Some of them feel that the good aspects of their identity have been replaced by unpleasant ones: “There is something wrong with me”47.\n\nThe weakened perception of the self may lead to a feeling of imminent personal failure: “I’m going to fail in everything”47. A sense of estrangement may be reported: “My depression is like being a different person… it’s like it’s part of my personality, but it’s overshadowing who I am”47.\n\nThe manic episodes are instead marked by an experience of consolidation of personal identity and possibilities: “I felt like I could do everything, that I would still be the best at whatever I decided to do” (personal communication).\n\nExperiencing overwhelmingly intense emotions\n\nAdolescents often experience mood episodes as a chaos of intense emotions. During the depressive phases, they report feelings of mental pain and anger (“I find dark elements in my life: sadness, anger, desperation and pain”50), which may be so intense that they feel like drowning: “With the depression spiral, you just keep going down and down”49. Sadness is described as being “to the deepest summit”51, often becoming an inconsolable “cry for no reason”47.\n\nDuring the manic phases, the intensification of all emotions is often perceived as confusing: “I had so many thoughts and so many emotions in my mind; they all mixed together” (personal communication). Anger not rarely predominates over euphoria and enthusiasm: “My immense rage increased at the same time as my desire to break everything, to feel things fall”52. Anger and irritability may be experienced as an overflowing river “that has always been present”53.\n\nAs adolescents have not typically developed mature coping strategies to contain their overwhelming irritability, they may resort to verbal or physical aggression towards themselves or others (“I feel really angry, it’s just like little things that get me irritable… I’ll literally go mad… It’s like I shout at them or punch things or just say stuff I don’t even like really mean”47) or bullying behaviors (“I was turning into a bully but didn’t want to turn into a bully”47).\n\nIn severe depression, rather than experiencing an intensification of their emotions, adolescents may experience a profound numbness and inability to feel any emotion at all: “I didn’t really feel anything, like there was no happiness or excitement, but there was also no sadness. It was just like everything was grey”46.\n\nFeeling trapped in their own minds\n\nAdolescents in a depressive episode often describe feeling trapped: “It is a disease that’s like a black hole. It is hard to get out of it, and everything around us is dark”54. They may also report feeling “flooded” by recurrent negative thoughts, self-doubts and ongoing ruminations: “I’m thinking about more and more things, so it’s like piling on top, so, the mood just kind of keeps going down”55.\n\nDuring a manic episode, there may be an experience of unprecedented availability of the surrounding world, as if everything is easily achievable and within reach: “The world was my playground” (personal communication). However, the sense of omnipotence is frequently chaotic and accompanied by racing thoughts and impulses: “You can tell that you were jumping from one thing to the next and not concluding sentences and things like that”56.\n\nTherefore, adolescents may eventually experience a painful sense of being trapped in their minds during both depressive and manic episodes. This feeling is amplified by an abnormal perception of the subjective time, which is stagnant in depression (“It feels like life goes on a loop every day, everything feels tired, nothing feels fresh anymore”54), and accelerated in mania (“It was as if everything couldn’t stop running”, personal communication).\n\nSeeing the surrounding world fading away\nDuring depressive episodes, adolescents may experience their surrounding world as fading away: “I’m separated from everyone else”47. They usually do not share the entertainment of their peers, and this makes them feel alone and isolated: “Everything is just harder to get through, and you want to isolate yourself”49. Isolation may become an unpleasant necessity: “‘I forget that everyone else exists… I’m invisible and I like that’”47.\n\nThe sense of isolation from the surrounding world may also be related to an altered perception of the lived body, which is characterized by heaviness, tiredness, and lack of energy: “I was always really tired, and I had no energy to do anything”47.\n\nDuring manic episodes, adolescents may report greater ease in social interaction (“I had always been shy but now I wasn’t anymore”, personal communication). However, this sense of being more in tune with the surrounding world is only apparent and transitory31. They are not able to pause and stop to properly meet their schoolmates and friends, because thoughts and body are in continuous excessive movement.\n\nTherefore, both in depression and mania, adolescents may ultimately experience the surrounding world fading away. Everything turns into a pointless and hopeless stagnation of personal purpose (“What is the point anymore? There is no point!”48) and boredom (“Just try and do a lot of different things, think I was interested in them then get bored, and just get into a cycle of boredom”46), or into a senseless race without a goal (“I felt like I was in a video game”, personal communication).\n\nI want us to have a conversation. Answer/respond as the described person would. Remember your answer length is maximum 2 sentences.",
+                caseStudy:"Fusar-Poli P, Estradé A, Esposito CM, et al. The lived experience of mental disorders in adolescents: a bottom-up review co-designed, co-conducted and co-written by experts by experience and academics. World Psychiatry. 2024;23(2):191-208.\ndoi: 10.1002/wps.21189​",
+                demo: true
             },
             {
                 title: "Adolescent with Social Anxiety, Depression, and Impact of Bullying",
                 description: "An adolescent experiencing social anxiety and depression, exacerbated by bullying from peers and teachers. Despite these challenges, they seek acceptance and support from understanding peers to combat feelings of isolation and inadequacy.",
-                author: "Dr. Arthur Tang",
                 imageUrl: "/imgs/icons/2.png",
-                pdfUrl: "",
-                prompt: "This agent's case study prompt is not available for the demo!"
+                prompt: "This agent's case study prompt is not available for the demo!",
+                caseStudy:"",
+                demo: false
             },
             {
                 title: "Adult with Generalized Anxiety Disorder and Career-Related Stress",
                 description: "An adult experiencing chronic anxiety and excessive worry about various aspects of life, particularly career-related stress. The patient finds it difficult to control their anxiety and often feels restless, fatigued, and struggles with concentration.",
-                author: "Tom Huynh",
                 imageUrl: "/imgs/icons/3.png",
-                pdfUrl: "",
-                prompt: "This agent's case study prompt is not available for the demo!"
+                prompt: "This agent's case study prompt is not available for the demo!",
+                caseStudy:"",
+                demo: false
             },
             {
                 title: "Child with Attention Deficit Hyperactivity Disorder (ADHD)",
                 description: "A child diagnosed with ADHD displaying symptoms of inattention, hyperactivity, and impulsivity. They have difficulty staying focused on tasks, often fidget, and act without thinking. The child needs structured routines and positive reinforcement to manage their behavior.",
-                author: "Dr. Ethan Patel",
                 imageUrl: "/imgs/icons/4.png",
-                pdfUrl: "",
-                prompt: "This agent's case study prompt is not available for the demo!"
+                prompt: "This agent's case study prompt is not available for the demo!",
+                caseStudy:"",
+                demo: false
             },
             {
                 title: "Elderly Individual with Alzheimer's Disease and Memory Loss",
                 description: "An elderly patient diagnosed with Alzheimer's Disease, experiencing progressive memory loss, confusion, and difficulty performing familiar tasks. They require support with daily activities and benefit from a stable, familiar environment to reduce anxiety and agitation.",
-                author: "Dr. Alexander Bennett",
                 imageUrl: "/imgs/icons/5.png",
-                pdfUrl: "",
-                prompt: "This agent's case study prompt is not available for the demo!"
+                prompt: "This agent's case study prompt is not available for the demo!",
+                caseStudy:"",
+                demo: false
             },
             {
                 title: "Adult with Obsessive-Compulsive Disorder (OCD) and Intrusive Thoughts",
                 description: "An adult suffering from OCD, characterized by recurrent, unwanted intrusive thoughts and compulsive behaviors aimed at reducing anxiety. The patient spends excessive amounts of time performing rituals and experiences significant distress and impairment in daily functioning.",
-                author: "Dr. Olivia Carter",
                 imageUrl: "/imgs/icons/6.png",
-                pdfUrl: "",
-                prompt: "This agent's case study prompt is not available for the demo!"
+                prompt: "This agent's case study prompt is not available for the demo!",
+                caseStudy:"",
+                demo: false
             }
         ];
 
@@ -177,23 +172,8 @@
             const item = items[index];
             document.getElementById('infoModalLabel').innerText = item.title;
             document.getElementById('modalDescription').innerText = item.description;
-            document.getElementById('modalAuthor').innerText = "By " + item.author;
             document.getElementById('modalImage').src = item.imageUrl;
-            document.getElementById('modalTextarea').value = item.prompt;
-
-            if (item.pdfUrl) {
-                document.getElementById('modalPdfLink').href = '/case-studies/' + item.pdfUrl;
-                document.getElementById('modalPdfLink').onclick = function() {
-                    return true;
-                };
-            } else {
-                document.getElementById('modalPdfLink').href = '#';
-                document.getElementById('modalPdfLink').onclick = function() {
-                    alert('The case study is not available for the demo! Please try to download the case study for the first agent only!');
-                    return false;
-                };
-            }
-
+            document.getElementById('modalTextarea').innerText = item.caseStudy;
 
             // Change chat form action based on the item index
             const chatForm = document.getElementById('chatForm');
@@ -243,19 +223,22 @@
                 description.innerHTML = truncateDescription(item.description, 16);
                 contentDiv.appendChild(description);
 
-                const author = document.createElement('p');
-                author.className = 'font-weight-bold';
-                author.innerText = "By " + item.author;
-                contentDiv.appendChild(author);
+                if (!item.demo) {
+                    const underDevelopmentImage = document.createElement('img');
+                    underDevelopmentImage.className = 'under-dev-img';
+                    underDevelopmentImage.src = '/imgs/under-development.jpg';
+                    contentDiv.appendChild(underDevelopmentImage);
+                }
 
-                const button = document.createElement('button');
-                button.className = 'btn btn-link p-0';
-                button.setAttribute('data-toggle', 'modal');
-                button.setAttribute('data-target', '#infoModal');
-                
-                button.setAttribute('onclick', `showInfo(${index})`);
-                button.innerText = 'More Info';
-                contentDiv.appendChild(button);
+                if (item.demo) {
+                    const button = document.createElement('button');
+                    button.className = 'btn btn-link p-0';
+                    button.setAttribute('data-toggle', 'modal');
+                    button.setAttribute('data-target', '#infoModal');
+                    button.setAttribute('onclick', `showInfo(${index})`);
+                    button.innerText = 'More Info';
+                    contentDiv.appendChild(button);
+                }
 
                 listItem.appendChild(imageDiv);
                 listItem.appendChild(contentDiv);
