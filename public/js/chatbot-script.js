@@ -1,21 +1,23 @@
+
+var isMuted;
 // listen for load event in the window
 $(window).on('load', function() {
   // do things after the DOM loads fully
   console.log("Everything is loaded");
 
-  var isMuted = false;
+    isMuted = false;
 
-  $('#speaker').click(function() {
-      isMuted = !isMuted;
+    $('#speaker').click(function() {
+        isMuted = !isMuted;
 
-      if (isMuted) {
-          $(this).text('🔇');
-          // Add code here to mute the avatar
-      } else {
-          $(this).text('🔊');
-          // Add code here to unmute the avatar
-      }
-  });
+        if (isMuted) {
+            $(this).text('🔇');
+            // Add code here to mute the avatar
+        } else {
+            $(this).text('🔊');
+            // Add code here to unmute the avatar
+        }
+    });
 
   let listening = false;
 
@@ -143,8 +145,10 @@ function insertAIMessage(reply) {
       updateScrollbar();
       i++;
   }, 500 + (Math.random() * 10) * 100);
-  $("#texttospeakinput").val(reply);
-  $("#imagecontainer").click();
+  if (isMuted == false) {
+    $("#texttospeakinput").val(reply);
+    $("#imagecontainer").click();
+  }
   $("#typed-input").val("");
 }
 
