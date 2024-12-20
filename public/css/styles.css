@@ -538,13 +538,13 @@ label[for="avatar-gender"],
 }
 
 /* Hide avatar options */
-.animation #ttsoptions {
+/* .animation #ttsoptions {
   display: none;
-}
+} */
 
-.animation #instructions {
+/* .animation #instructions {
   display: none;
-}
+} */
 
 .instructions{
   font-size: 15px;
